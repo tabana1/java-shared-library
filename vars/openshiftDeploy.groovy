@@ -4,7 +4,7 @@ def call(String OpenshiftcredintialsID, String imageName) {
     sh "sed -i 's|image:.*|image: ${imageName}:${BUILD_NUMBER}|g' java-deployment-service.yaml"
     
 
-    withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: '', contextName: '', credentialsId: 'open-shift-service', namespace: 'my-devops-tools', serverUrl: 'https://api.ocp-training.ivolve-test.com:6443']]) {
+    withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: '', contextName: '', credentialsId: 'open-shift-service', namespace: 'mohamedtabana', serverUrl: 'https://console-openshift-console.apps.ocp-training.ivolve-test.com']]) {
         sh "oc apply -f java-deployment-service.yaml -n mohamedtabana"
     }
 }
